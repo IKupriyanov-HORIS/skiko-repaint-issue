@@ -12,7 +12,7 @@ Run the app and resize the window.
 
 ### Expected behaviour:
 
-In a resize state the content should not be updated, the last set text should be rendered in a text view. After 0.5s from the last resize event the text view should display "Skiko canvas, size=..." with a window size. 
+In a resize state the content should not be updated, the last set text should be rendered in a text view. After 0.5s (see [here](https://github.com/IKupriyanov-HORIS/skiko-repaint-issue/blob/5ca12a97e85b291c21acb5b276e38b3b0adb421c/src/main/kotlin/TextViewCompose.kt#L35)) from the last resize event the text view should display "Skiko canvas, size=..." with a window size. 
 <img width="800" alt="image" src="https://github.com/IKupriyanov-HORIS/skiko-repaint-issue/assets/14200189/e5ccb64c-4ea1-4c0c-a175-4a852a2622ac">
 
 ### Actual behaviour:
