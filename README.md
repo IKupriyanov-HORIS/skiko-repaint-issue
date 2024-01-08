@@ -8,22 +8,23 @@ https://github.com/IKupriyanov-HORIS/skiko-repaint-issue/assets/14200189/e2c9084
 
 ### How to use:
 
-Run app and resize the window.
+Run the app and resize the window.
 
 ### Expected behaviour:
 
-After 0.5s from the last resize event the window should display text "Skiko canvas, size=..." with actual size.  
+In a resize state the content should not be updated, the last set text should be rendered in a text view. After 0.5s from the last resize event the text view should display "Skiko canvas, size=..." with a window size. 
 <img width="800" alt="image" src="https://github.com/IKupriyanov-HORIS/skiko-repaint-issue/assets/14200189/e5ccb64c-4ea1-4c0c-a175-4a852a2622ac">
 
 ### Actual behaviour:
 
-Window filled with orange color (background color of the `TextSkikoViewHolder` (TextSkikoViewHolder.kt:24)).
+Window filled with a orange color (see [here](https://github.com/IKupriyanov-HORIS/skiko-repaint-issue/blob/5ca12a97e85b291c21acb5b276e38b3b0adb421c/src/main/kotlin/TextSkikoViewHolder.kt#L24)).
 <img width="800" alt="image" src="https://github.com/IKupriyanov-HORIS/skiko-repaint-issue/assets/14200189/ee4ca554-2413-42e4-8e4e-74dac5d1d628">
 
 ### Hack:
 
-Found strange fix - everything works as expected when add Compose Canvas to composition, even if this Canvas is hidden from composition (yet Canvas size should not be zero).  
-Hack can be switched at runtime by the checkbox "Repaint hack".
+Everything works as expected when the Compose Canvas is added to a composition, even if this Canvas is not visible (Canvas still should have a non-zero size). See [here](https://github.com/IKupriyanov-HORIS/skiko-repaint-issue/blob/5ca12a97e85b291c21acb5b276e38b3b0adb421c/src/main/kotlin/TextViewCompose.kt#L51).  
+
+Hack can be switched at a runtime with the "Repaint hack" checkbox.
 
 
 
